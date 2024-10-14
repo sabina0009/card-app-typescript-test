@@ -1,9 +1,8 @@
 interface Props {
-  darkMode: boolean
   switchMode: () => void
 }
 
-const Switch = ({ darkMode, switchMode }: Props) => {
+const Switch = ({ switchMode }: Props) => {
   return (
     <label className="inline-flex items-center cursor-pointer m-2 absolute top-0 right-0">
       <input type="checkbox" value="" className="sr-only peer m-1" onChange={switchMode}></input>
