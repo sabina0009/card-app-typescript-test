@@ -26,7 +26,7 @@ export default function App() {
 
   return (
     <section>
-      <Switch darkMode={darkMode} switchMode={switchMode}></Switch>
+      <Switch switchMode={switchMode}></Switch>
       <Router>
         <EntryProvider>
           <NavBar></NavBar>
