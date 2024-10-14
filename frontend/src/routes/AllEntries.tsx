@@ -9,7 +9,7 @@ export default function AllEntries() {
   if (entries.length == 0) {
     return (
       <section>
-        <h1 className="text-center font-semibold text-2xl m-5 text-black dark:text-white">You don't have any card</h1>
+        <h1 className="text-center font-semibold text-2xl m-5 text-black dark:text-white">You don't have any cards</h1>
         <p className="text-center font-medium text-md text-black dark:text-white">
           Lets{" "}
           <Link className="text-blue-400 underline underline-offset-1" to="/create">
@@ -28,8 +28,20 @@ export default function AllEntries() {
             key={index}
             className="bg-gray-300 dark:bg-slate-700 shadow-md shadow-gray-500 dark:shadow-slate-900 m-3 p-4 rounded flex flex-col justify-between"
           >
-            <h1 className="font-bold text-sm md:text-lg">{entry.title}</h1>
-            <p className="text-center text-lg font-light md:mt-2 md:mb-4 mt-1 mb-3">{entry.description}</p>
+            <h1 className="font-bold text-sm md:text-lg text-black dark:text-white">To Do: {entry.title}</h1>
+            <div className='flex'>
+              <p className="text-sm md:text-lg text-black dark:text-white"> Created At: </p>
+              <time className="ml-1 text-sm md:text-lg text-black dark:text-white">
+                {new Date(entry.created_at.toString()).toLocaleDateString()}
+              </time>
+            </div>
+            <div className='flex'>
+              <p className="text-sm md:text-lg text-black dark:text-white"> Scheduled For: </p>
+              <time className="ml-1 text-sm md:text-lg text-black dark:text-white">
+                {new Date(entry.scheduled_date.toString()).toLocaleDateString()}
+              </time>
+            </div>
+            <p className="text-center text-lg font-light md:mt-2 md:mb-4 mt-1 mb-3 text-black dark:text-white">{entry.description}</p>
             <section className="flex items-center justify-between flex-col md:flex-row pt-2 md:pt-0">
               <div className="flex justify-center">
                 <button
@@ -49,9 +61,6 @@ export default function AllEntries() {
                   🖊
                 </button>
               </div>
-              <time className="text-right text-sm md:text-lg">
-                {new Date(entry.created_at.toString()).toLocaleDateString()}
-              </time>
             </section>
           </div>
         );
